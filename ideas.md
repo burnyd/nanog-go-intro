@@ -1,0 +1,38 @@
+- WHOAMI:
+  - Why I am qualified
+  - Not a developer
+  - My how I learned go story and motivation
+  - blah blah blah muh networks
+- Go why now?
+  - Unlimited amounts of fun gophers.
+  - What is Go
+    - What makes go better / Selling points strong use case here for people because we cant live with python forever and we also cannot go to the new hotness all the time.  There is a good reason for go and not mojo/rust/zig etc etc.  My explanation is go is simplistic and offers typing, concurrency and overall its battle tested has a good community around it etc etc.  
+      - Types
+      - Concurrency
+      - Compiled
+      - Multi arch x86/Arm/Darwin
+      - No white spacing
+      - built in unit testing 
+      - go mod / go sum
+- Projects that use go
+  - Terraform
+  - Containerlab
+  - gNMIC
+  - Hugo(Needed for go templating)
+  - Kubernetes
+  - Pretty much all cloud native projects
+- Popular Go modules in network space
+  - Need to make a strong case for ecosystem.
+  - If you want to work with anything openconfig.
+  - Go netbox.
+  - net built in module.
+  - netaddr go.
+- Small coding examples 
+  - Explain if err != nil
+  - Explain the constnat use or err or _ for newcommers
+  - Give a small example of how to look at a struct and godocs
+  - Small Rest marshall/unmarshalling with a struct and dotted notation as an example.
+  - Connect to device 
+    - goeapi. 
+    - gNMI Get.
+  - General links etc etc.

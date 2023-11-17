@@ -5,7 +5,7 @@ import (
 
 	"github.com/aristanetworks/goeapi"
 )
-
+// Connection structure this will hold our credentials and other info about the EOS device
 type Conn struct {
 	Transport string
 	Host      string
@@ -15,6 +15,7 @@ type Conn struct {
 	Config    string
 }
 
+// Json response structure from a show version
 type VersionResp struct {
 	ModelName        string  `json:"modelName"`
 	InternalVersion  string  `json:"internalVersion"`
@@ -43,7 +44,7 @@ func (c *Conn) Connect() (*goeapi.Node, error) {
 }
 
 func main() {
-	// Structure the connection data the way we want to strucgture it.
+	// Structure the connection data the way we want to structure it.
 	d := Conn{
 		Transport: "http",
 		Host:      "172.20.20.2",
@@ -73,16 +74,20 @@ func main() {
 	fmt.Print(conf[0])
 
 	// Run some regular commands get the response typed the way we want it.
-
+	// Point to the VersionResp struct
 	Showversion := &VersionResp{}
+	// Cal the GetHandle method
 	handle, err := Connect.GetHandle("json")
 	if err != nil {
 		fmt.Println(err)
 	}
+	// This will add to a new slice of AddCommands to send to the switch.
 	handle.AddCommand(Showversion)
+	// If it exists handle.Call will append all the AddCommands and then connect to the switch
 	if err := handle.Call(); err != nil {
 		panic(err)
 	}
+	// Going to print out values for each. 
 	fmt.Printf("\n")
 	fmt.Printf("Version           : %s\n", Showversion.Version)
 	fmt.Printf("System MAC        : %s\n", Showversion.SystemMacAddress)

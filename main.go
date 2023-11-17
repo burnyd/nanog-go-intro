@@ -5,7 +5,6 @@ import (
 
 	"github.com/aristanetworks/goeapi"
 )
-// Structures the data in the way we want to srtucture it.
 type Conn struct {
 	Transport string
 	Host      string

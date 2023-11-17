@@ -38,3 +38,4 @@
   - General links etc etc.
   - https://github.com/ashleymcnamara/gophers
   - https://github.com/MariaLetta/free-gophers-pack
+  - https://go-proverbs.github.io/

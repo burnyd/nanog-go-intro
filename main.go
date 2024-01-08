@@ -5,6 +5,7 @@ import (
 
 	"github.com/aristanetworks/goeapi"
 )
+
 // Connection structure this will hold our credentials and other info about the EOS device
 type Conn struct {
 	Transport string
@@ -57,12 +58,13 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	// Print the running-config as a massive string
+	// Print the running-config as a massive string [:200] prints out only 200 characters.
 	RunningConfig := Connect.RunningConfig()
-	fmt.Println(RunningConfig + "\n")
+	fmt.Println("***Printing The Running-Configuration***")
+	fmt.Println(RunningConfig[:200] + "\n")
 
 	// Run some regular commands get the map[string]string output
-	fmt.Println("Running a show version \n")
+	fmt.Println("***Running a show version***")
 	commands := []string{"show version"}
 	conf, err := Connect.Enable(commands)
 	if err != nil {
@@ -71,8 +73,6 @@ func main() {
 	for k, v := range conf[0] {
 		fmt.Println(k, v)
 	}
-	fmt.Print(conf[0])
-
 	// Run some regular commands get the response typed the way we want it.
 	// Point to the VersionResp struct
 	Showversion := &VersionResp{}
@@ -87,7 +87,9 @@ func main() {
 	if err := handle.Call(); err != nil {
 		panic(err)
 	}
-	// Going to print out values for each. 
+	// Going to print out values for each.
+	fmt.Printf("\n")
+	fmt.Printf("***Running a show version with json tags***")
 	fmt.Printf("\n")
 	fmt.Printf("Version           : %s\n", Showversion.Version)
 	fmt.Printf("System MAC        : %s\n", Showversion.SystemMacAddress)
